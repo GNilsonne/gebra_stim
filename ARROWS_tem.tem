@@ -1,0 +1,63 @@
+array{
+	bitmap { filename = "Maintain.jpg";} inst1;
+	bitmap { filename = "Downregulate.jpg";} inst2;
+	}cue;
+	
+array{
+bitmap { filename = "3170.jpg"; width = 800; scale_factor = scale_to_width;} P1;
+bitmap { filename = "3266.jpg"; width = 800; scale_factor = scale_to_width;} P2;
+bitmap { filename = "3001.jpg"; width = 800; scale_factor = scale_to_width;} P3;
+bitmap { filename = "3010.jpg"; width = 800; scale_factor = scale_to_width;} P4;
+bitmap { filename = "3301.jpg"; width = 800; scale_factor = scale_to_width;} P5;
+bitmap { filename = "9405.jpg"; width = 800; scale_factor = scale_to_width;} P6;
+bitmap { filename = "3062.jpg"; width = 800; scale_factor = scale_to_width;} P7;
+bitmap { filename = "9921.jpg"; width = 800; scale_factor = scale_to_width;} P8;
+bitmap { filename = "9300.jpg"; width = 800; scale_factor = scale_to_width;} P9;
+bitmap { filename = "9902.jpg"; width = 800; scale_factor = scale_to_width;} P10;
+
+bitmap { filename = "3030.jpg"; width = 800; scale_factor = scale_to_width;} P11;
+bitmap { filename = "9253.jpg"; width = 800; scale_factor = scale_to_width;} P12;
+bitmap { filename = "9904.jpg"; width = 800; scale_factor = scale_to_width;} P13;
+bitmap { filename = "3053.jpg"; width = 800; scale_factor = scale_to_width;} P14;
+bitmap { filename = "3064.jpg"; width = 800; scale_factor = scale_to_width;} P15;
+bitmap { filename = "9410.jpg"; width = 800; scale_factor = scale_to_width;} P16;
+bitmap { filename = "3005.1.jpg"; width = 800; scale_factor = scale_to_width;} P17;
+bitmap { filename = "3110.jpg"; width = 800; scale_factor = scale_to_width;} P18;
+bitmap { filename = "3191.jpg"; width = 800; scale_factor = scale_to_width;} P19;
+bitmap { filename = "3103.jpg"; width = 800; scale_factor = scale_to_width;} P20;
+
+bitmap { filename = "7487.jpg"; width = 800; scale_factor = scale_to_width;} P21;
+bitmap { filename = "7050.jpg"; width = 800; scale_factor = scale_to_width;} P22;
+bitmap { filename = "7010.jpg"; width = 800; scale_factor = scale_to_width;} P23;
+bitmap { filename = "2002.jpg"; width = 800; scale_factor = scale_to_width;} P24;
+bitmap { filename = "7034.jpg"; width = 800; scale_factor = scale_to_width;} P25;
+bitmap { filename = "7235.jpg"; width = 800; scale_factor = scale_to_width;} P26;
+bitmap { filename = "2397.jpg"; width = 800; scale_factor = scale_to_width;} P27;
+bitmap { filename = "2214.jpg"; width = 800; scale_factor = scale_to_width;} P28;
+bitmap { filename = "2220.jpg"; width = 800; scale_factor = scale_to_width;} P29;
+bitmap { filename = "2411.jpg"; width = 800; scale_factor = scale_to_width;} P30;
+
+bitmap { filename = "7009.jpg"; width = 800; scale_factor = scale_to_width;} P31;
+bitmap { filename = "7059.jpg"; width = 800; scale_factor = scale_to_width;} P32;
+bitmap { filename = "7950.jpg"; width = 800; scale_factor = scale_to_width;} P33;
+bitmap { filename = "2890.jpg"; width = 800; scale_factor = scale_to_width;} P34;
+bitmap { filename = "9422.jpg"; width = 800; scale_factor = scale_to_width;} P35;
+bitmap { filename = "7002.jpg"; width = 800; scale_factor = scale_to_width;} P36;
+bitmap { filename = "2484.jpg"; width = 800; scale_factor = scale_to_width;} P37;
+bitmap { filename = "9070.jpg"; width = 800; scale_factor = scale_to_width;} P38;
+bitmap { filename = "2749.jpg"; width = 800; scale_factor = scale_to_width;} P39;
+bitmap { filename = "8160.jpg"; width = 800; scale_factor = scale_to_width;} P40;
+}pic;
+
+array{
+bitmap { filename = "rate.jpg"; width = 800; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate1.jpg"; width = 800; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate2.jpg"; width = 800; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate3.jpg"; width = 800; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate4.jpg"; width = 800; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate5.jpg"; width = 800; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate6.jpg"; width = 800; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate7.jpg"; width = 800; scale_factor = scale_to_width;} ;
+} pic_skala;
+	
+	
