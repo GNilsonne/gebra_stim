@@ -1,0 +1,24 @@
+array{
+	bitmap { filename = "Maintain.jpg"; width = 1024; scale_factor = scale_to_width;} inst1;
+	bitmap { filename = "Downregulate.jpg"; width = 1024; scale_factor = scale_to_width;} inst2;
+	}cue;
+	
+array{
+bitmap { filename = "1050.jpg"; width = 1024; scale_factor = scale_to_width;} P1;
+bitmap { filename = "1052.jpg"; width = 1024; scale_factor = scale_to_width;} P2;
+bitmap { filename = "1440.jpg"; width = 1024; scale_factor = scale_to_width;} P3;
+bitmap { filename = "1450.jpg"; width = 1024; scale_factor = scale_to_width;} P4;
+}pic;
+
+array{
+bitmap { filename = "rate.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate1.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate2.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate3.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate4.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate5.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate6.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+bitmap { filename = "rate7.jpg"; width = 1024; scale_factor = scale_to_width;} ;
+} pic_skala;
+	
+	

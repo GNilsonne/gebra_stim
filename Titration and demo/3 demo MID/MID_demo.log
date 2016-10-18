@@ -1,0 +1,47 @@
+Scenario - 
+Logfile written - 10/17/2016 18:25:21
+
+Subject	Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+8938	2	Picture	mystim	45663	0	1	3166	1	0	next	hit	2
+8938	3	Response	1	47757	1928	0
+8938	4	Picture	feedback	81660	0	1	5166	1	0	5000	other	0
+8938	6	Picture	mystim	127657	0	1	3166	1	0	next	hit	5
+8938	7	Response	1	129807	1983	0
+8938	8	Picture	feedback	164488	0	1	5166	1	0	5000	other	0
+8938	10	Picture	mystim	215817	0	1	3166	1	0	next	hit	8
+8938	11	Response	1	217977	1993	0
+8938	12	Picture	feedback	247648	0	1	5166	1	0	5000	other	0
+8938	14	Picture	mystim	293645	0	1	3166	1	0	next	hit	11
+8938	15	Response	1	295544	1733	0
+8938	16	Picture	feedback	328142	0	1	5166	1	0	5000	other	0
+8938	18	Picture	mystim	370473	0	1	3166	1	0	next	hit	14
+8938	19	Response	1	373265	2626	0
+8938	20	Picture	feedback	409803	0	1	5166	1	0	5000	other	0
+8938	22	Picture	mystim	449133	0	1	3166	1	0	next	hit	17
+8938	23	Response	1	452493	3194	0
+8938	24	Picture	feedback	472965	0	1	5166	1	0	5000	other	0
+8938	26	Picture	mystim	527461	0	1	3166	1	0	next	hit	20
+8938	27	Response	1	529562	1934	0
+8938	28	Picture	feedback	565458	0	1	5166	1	0	5000	other	0
+8938	30	Picture	mystim	606289	0	1	3166	1	0	next	hit	23
+8938	31	Response	1	608667	2213	0
+8938	32	Picture	feedback	632953	0	1	5166	1	0	5000	other	0
+8938	34	Picture	mystim	685449	0	1	3166	1	0	next	hit	26
+8938	35	Response	1	687984	2369	0
+8938	36	Picture	feedback	727446	0	1	5166	1	0	5000	other	0
+8938	38	Picture	mystim	782442	0	1	3166	1	0	next	hit	29
+8938	39	Response	1	785175	2567	0
+8938	40	Picture	feedback	823939	0	1	5166	1	0	5000	other	0
+8938	42	Picture	mystim	874769	0	1	3166	1	0	next	hit	32
+8938	43	Response	1	877482	2546	0
+8938	44	Picture	feedback	911933	0	1	5166	1	0	5000	other	0
+8938	46	Picture	mystim	955429	0	1	3166	1	0	next	hit	35
+8938	47	Response	1	957484	1888	0
+8938	48	Picture	feedback	992427	0	1	5166	1	0	5000	other	0
+8938	50	Picture	mystim	1038090	0	1	3166	1	0	next	hit	38
+8938	51	Response	1	1040203	1946	0
+8938	52	Picture	feedback	1063921	0	1	5166	1	0	5000	other	0
+8938	54	Picture	mystim	1114418	0	1	3166	1	0	next	hit	41
+8938	55	Response	1	1116465	1881	0
+8938	56	Picture	feedback	1138083	0	1	5166	1	0	5000	other	0
