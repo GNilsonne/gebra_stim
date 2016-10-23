@@ -44,6 +44,7 @@ trial {
 	stimulus_event {
       picture pic0; # tell participant which kind of trial it is, will be changed in PCL
 		duration = 500;
+		code = "present";
 	} present_event;
 	stimulus_event {
       picture picfix; # fixation cross
@@ -52,6 +53,7 @@ trial {
 		response_active = true;
 		stimulus_time_in = 0;
 		stimulus_time_out = 1000;
+		code = "fix";
 	} fix_event;
 } present_trial;
 
@@ -61,7 +63,7 @@ trial {
 		stimulus_time_in = 0;
 		stimulus_time_out = 1000;
 		target_button = 1;
-		code = "mystim";
+		code = "target_square";
 	} resp_event;
 } resp_trial;
 
@@ -70,6 +72,7 @@ trial {
 		picture {};
 		deltat = 300;
 		duration = 2000; # will be randomised in PCL
+		code = "wait";
 	} wait_event;
 } wait_trial;
 
@@ -161,7 +164,7 @@ end;
 
 # Run trials
 int total_win = 0;	
-int cutoff = 262;
+int cutoff = 212;
 loop int i = 0 until i > 59
 	begin	
 	i = i + 1;
@@ -174,16 +177,19 @@ loop int i = 0 until i > 59
 	if alltrials[i][1] == 0 then
 		pic0.set_part(1, bmp0);
 		pic_pic.set_part(1, bmpoutcome0);
+		present_event.set_event_code(win0);
 		resfile.print(0);
 		resfile.print("\t");
 	elseif alltrials[i][1] == 5 then
 		pic0.set_part(1, bmp5);
 		pic_pic.set_part(1, bmpoutcome5);
+		present_event.set_event_code(win5);
 		resfile.print(5);
 		resfile.print("\t");
 	elseif alltrials[i][1] == 25 then
 		pic0.set_part(1, bmp25);
 		pic_pic.set_part(1, bmpoutcome25);
+		present_event.set_event_code(win25);
 		resfile.print(25);
 		resfile.print("\t");
 	end;
