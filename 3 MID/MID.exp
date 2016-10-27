@@ -1,6 +1,6 @@
 <ver>18.3</ver>
 <efn>C:\Users\gebra\Desktop\Experiment\3 MID\MID.exp</efn>
-<author></author>
+<author>Gustav Nilsonne &amp; Daniel Samsami</author>
 <con>
 <pause>P</pause>
 <pause_code></pause_code>
@@ -127,7 +127,7 @@
 <sc>0</sc>
 </chan>
 </ip_chans>
-<lfd>C:\Users\gebra\Desktop\Experiment\3 MID</lfd>
+<lfd>C:\Users\gebra\Desktop\Logfiles</lfd>
 <lnb>2</lnb>
 <lno>0</lno>
 <log>
@@ -148,7 +148,7 @@
 <lsl>0</lsl>
 <maxpv>-1</maxpv>
 <minpv>-1</minpv>
-<nam></nam>
+<nam>MID</nam>
 <one_processor>2</one_processor>
 <oports></oports>
 <out_encrypt_key></out_encrypt_key>

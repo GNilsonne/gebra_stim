@@ -72,7 +72,7 @@ trial {
 		picture {};
 		deltat = 300;
 		duration = 2000; # will be randomised in PCL
-		code = "wait";
+		#code = "wait"; # If uncommented causes feedback to not be presented, leave as is
 	} wait_event;
 } wait_trial;
 
@@ -130,6 +130,8 @@ resfile.print("\t");
 resfile.print("rt");
 resfile.print("\t");
 resfile.print("outcome");
+resfile.print("\t");
+resfile.print("total_win");
 resfile.print("\n");
 
 # Read trial list
@@ -164,7 +166,7 @@ end;
 
 # Run trials
 int total_win = 0;	
-int cutoff = 212;
+int cutoff = 400;
 loop int i = 0 until i > 59
 	begin	
 	i = i + 1;
@@ -177,19 +179,19 @@ loop int i = 0 until i > 59
 	if alltrials[i][1] == 0 then
 		pic0.set_part(1, bmp0);
 		pic_pic.set_part(1, bmpoutcome0);
-		present_event.set_event_code(win0);
+		present_event.set_event_code("win0");
 		resfile.print(0);
 		resfile.print("\t");
 	elseif alltrials[i][1] == 5 then
 		pic0.set_part(1, bmp5);
 		pic_pic.set_part(1, bmpoutcome5);
-		present_event.set_event_code(win5);
+		present_event.set_event_code("win5");
 		resfile.print(5);
 		resfile.print("\t");
 	elseif alltrials[i][1] == 25 then
 		pic0.set_part(1, bmp25);
 		pic_pic.set_part(1, bmpoutcome25);
-		present_event.set_event_code(win25);
+		present_event.set_event_code("win25");
 		resfile.print(25);
 		resfile.print("\t");
 	end;
@@ -217,7 +219,7 @@ loop int i = 0 until i > 59
 					resfile.print(last2.reaction_time());
 					resfile.print("\t");
 					resfile.print("hit");
-					resfile.print("\n");
+					resfile.print("\t");
 					cutoff = cutoff - 10;
 				else
 					text1.set_caption("("+string(total_win)+" kr)");		
@@ -230,7 +232,7 @@ loop int i = 0 until i > 59
 					resfile.print(last2.reaction_time());
 					resfile.print("\t");
 					resfile.print("miss");
-					resfile.print("\n");
+					resfile.print("\t");
 					cutoff = cutoff + 20;
 				end;
 			elseif (last2.type() == stimulus_miss) then
@@ -244,7 +246,7 @@ loop int i = 0 until i > 59
 				resfile.print(last2.reaction_time());
 				resfile.print("\t");
 				resfile.print("miss");
-				resfile.print("\n");
+				resfile.print("\t");
 				cutoff = cutoff + 20;
 			end;
 		elseif response_manager.hits() == 0 then
@@ -255,10 +257,12 @@ loop int i = 0 until i > 59
 			resfile.print("NA");
 			resfile.print("\t");
 			resfile.print("miss");
-			resfile.print("\n");
+			resfile.print("\t");
 		end;
 	elseif last.type() == last.FALSE_ALARM then
 		false_start_trial.present();
 	end;
+	resfile.print(total_win);
+	resfile.print("\n");
 end;
 resfile.close();
