@@ -24,7 +24,7 @@ begin;
 
 picture {} default;
 
-# Pictures saying how long the shock will be
+# Pictures saying how intense the shock will be
 array{
 bitmap { filename = "self_low.jpg"; width = 800; scale_factor = scale_to_width;} ;
 bitmap { filename = "self_high.jpg"; width = 800; scale_factor = scale_to_width;} ;
@@ -48,15 +48,22 @@ trial { # Select shock length
 
 trial { # Give shock
 	all_responses = true;
-	stimulus_event{  
-		picture{
-			bitmap { filename = "shockpic_self_low.jpg"; width = 800; scale_factor = scale_to_width;}; x = 0; y = 0;
-         } pic_shockpic;
-         duration = 300;
-		port_code = 1;
-		code_width = 1; # Will be changed in pcl
-	} ev_shock;
-				
+	trial_duration = 300;
+
+	stimulus_event {
+  		picture{ bitmap { filename = "shockpic_self_low.jpg"; width = 800; scale_factor = scale_to_width;}; x = 0; y = 0;
+        	} pic_shockpic;
+   		time = 0;
+   		port_code = 2;
+	} high;
+
+	stimulus_event {
+   		picture{ bitmap { filename = "shockpic_self_low.jpg"; width = 800; scale_factor = scale_to_width;}; x = 0; y = 0;
+         	} pic_shockpic};
+   		time = 2; # This determines shock length, now 2 ms, do not change
+   		duration = 298;
+   		port_code = 0;
+	} low;
 } main_trial; 
 
 ##############################
@@ -65,13 +72,14 @@ begin_pcl;
 
 # Initialise counters
 int lo=1;
-int shock_length = 1;
-int shock_length_counter = 1;
+int shock_intensity = 0;
+int shock_intensity_counter = 0;
 int shock_no = 0;
 int right = response_manager.total_response_count(2); 
 int left = response_manager.total_response_count(1);
 int movement = 0;	
 pic_resp.add_part(pic_skala[1],0,0);
+high.set_port_code(0) # Failsafe, always start at 0 V
 
 # Run trials
 loop
