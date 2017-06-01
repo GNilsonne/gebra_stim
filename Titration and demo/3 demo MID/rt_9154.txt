@@ -1,0 +1,16 @@
+trial_type	rt	outcome
+0	NA	miss
+0	201	hit
+5	237	hit
+25	229	hit
+5	201	hit
+0	213	hit
+5	221	hit
+25	230	hit
+0	223	hit
+0	457	miss
+5	197	hit
+0	205	hit
+0	226	hit
+25	200	hit
+0	216	hit

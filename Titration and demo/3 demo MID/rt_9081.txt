@@ -1,0 +1,15 @@
+trial_type	rt	outcome
+0	226	hit
+5	214	hit
+25	302	hit
+5	224	hit
+0	199	hit
+5	211	hit
+25	208	hit
+0	202	hit
+0	228	hit
+5	231	hit
+0	264	hit
+0	210	hit
+25	296	hit
+0	198	hit

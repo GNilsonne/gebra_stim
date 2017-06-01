@@ -1,0 +1,239 @@
+# Initialise
+double code = 0; # Will be fed to port code argument, range 0-4
+ev_shock.set_port_code(0); # Failsafe, always start at 0 V
+
+parameter_window.remove_all();
+
+# Open and read shock intensities
+# When program is run, enter subject ID at subject prompt.
+# You must have prepared a file with the name "intensities_ID" where "ID" is subject ID
+string enterfname = logfile.subject();
+
+string fname = "intensity_high_" + enterfname + ".txt";
+input_file myfile = new input_file;
+myfile.open(fname);
+int intensity_high = myfile.get_int();
+myfile.close();
+double code_high = intensity_high/10;
+
+string fname2 = "intensity_low_" + enterfname + ".txt";
+input_file myfile2 = new input_file;
+myfile2.open(fname2);
+int intensity_low = myfile2.get_int();
+myfile2.close();
+double code_low = intensity_low/10;
+
+# Initialise logfile
+#output_file resfile = new output_file;
+#resfile.open( "RESULTAT_EP.txt", false);
+#resfile.print("1=self_high, 2=self_low, 3=other_high, 4=other_low");
+#resfile.print("\n");
+#resfile.print("condition");
+#resfile.print("\t");
+#resfile.print("intensity");
+#resfile.print("\t");
+#resfile.print("unpleasantness");
+#resfile.print("\n");
+
+# Define trial list
+array<int> alltrials[][] = {
+{1, 2, 3, 4}, # Trial no
+{2, 4, 1, 3}, # Condition
+{1, 0, 1, 0}}; # Shock 
+
+########################################	
+# Main Trial
+#######################################
+
+# Get fMRI trigger pulse
+#int pulses=pulse_manager.main_pulse_count();
+#loop until (pulse_manager.main_pulse_count() > pulses)
+#begin
+#end;
+
+# Start experiment with fixation cross
+tr_fixation_cross.present();	
+
+# Loop over trials
+loop int cnt=1; until cnt > 4 begin
+
+	int thiscode = alltrials[2][cnt];
+	int thisshock = alltrials[3][cnt];
+	int r=(random(2500,6500));
+	int s=(random(1000,5000));
+
+	if thiscode == 1 then
+		pic_condition.set_part(1,self_high);
+		pic_shock.set_part(1,shockpic_self_high);
+		pic_shock2.set_part(1,shockpic_self_high);
+		ev_shock.set_event_code("self_high");
+		code = code_high;
+		#resfile.print ("1"); 
+		#resfile.print ("\t");
+			
+	elseif thiscode == 2 then
+		pic_condition.set_part(1,self_low);		
+		pic_shock.set_part(1,shockpic_self_low);
+		pic_shock2.set_part(1,shockpic_self_low);
+		ev_shock.set_event_code("self_low");
+		code = code_low;
+		#resfile.print ("2"); 
+		#resfile.print ("\t");
+			
+	elseif thiscode == 3 then
+		pic_condition.set_part(1,other_high);
+		pic_shock.set_part(1,shockpic_other_high);
+		pic_shock2.set_part(1,shockpic_other_high);
+		ev_shock.set_event_code("other_high");
+		code = 0;
+		#resfile.print ("3"); 
+		#resfile.print ("\t");
+		
+	elseif thiscode == 4 then
+		pic_condition.set_part(1,other_low);
+		pic_shock.set_part(1,shockpic_other_low);
+		pic_shock2.set_part(1,shockpic_other_low);
+		ev_shock.set_event_code("other_low");
+		code = 0;
+		#resfile.print ("4"); 
+		#resfile.print ("\t");
+	end; 
+	
+	ev_shock.set_port_code(code);	
+	tr_condition.present();
+	tr_shock.present();	
+	ev_blank.set_duration(s);
+	tr_blank.present();	
+	tr_rate.present();
+	cnt=cnt+1;
+
+	if thisshock == 1 then # Ask about pain intensity only when subject received shock
+		loop 
+			int confirm = response_manager.total_response_count( 3 ); 
+			int right = response_manager.total_response_count( 2 ); 
+			int right_up = response_manager.total_response_count( 5 );
+			int left = response_manager.total_response_count( 1 );
+			int left_up = response_manager.total_response_count( 4 ); 
+			int x = 0; 
+			int x_inc = 3; 
+			int movement = 0;
+			scale.set_part(3,number[1]); 
+			scale.set_part(4,number[2]); 
+			scale.set_part(5,questions[1]); 
+			scale.present(); 
+		until 
+			response_manager.total_response_count( 3 ) > confirm 
+		begin 
+			if response_manager.total_response_count( 1 ) > left then 
+				movement = -1;
+				left = response_manager.total_response_count( 1 );
+			elseif response_manager.total_response_count( 4 ) > left_up then 
+				movement = 0;
+				left_up = response_manager.total_response_count( 4 ); 
+			elseif response_manager.total_response_count( 2 ) > right then 
+				movement = 1;
+				right = response_manager.total_response_count( 2 );
+			elseif response_manager.total_response_count( 5 ) > right_up then 
+				movement = 0;
+				right_up = response_manager.total_response_count( 5 );		
+			end; 
+			x = x + (movement * x_inc); 
+			if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+				
+			scale.set_part_x( 2, x ); 
+			scale.present(); 
+		
+			if response_manager.total_response_count( 3 ) > confirm then
+				#resfile.print (x); 
+				#resfile.print ("\t");
+			end;
+		end;
+	end;
+
+	if thisshock == 0 then # Ask about pain intensity only when subject received shock
+		loop 
+			int confirm = response_manager.total_response_count( 3 ); 
+			int right = response_manager.total_response_count( 2 ); 
+			int right_up = response_manager.total_response_count( 5 );
+			int left = response_manager.total_response_count( 1 );
+			int left_up = response_manager.total_response_count( 4 ); 
+			int x = 0; 
+			int x_inc = 3; 
+			int movement = 0;
+			scale.set_part(3,number[1]); 
+			scale.set_part(4,number[2]); 
+			scale.set_part(5,questions[3]); 
+			scale.present(); 
+		until 
+			response_manager.total_response_count( 3 ) > confirm 
+		begin 
+			if response_manager.total_response_count( 1 ) > left then 
+				movement = -1;
+				left = response_manager.total_response_count( 1 );
+			elseif response_manager.total_response_count( 4 ) > left_up then 
+				movement = 0;
+				left_up = response_manager.total_response_count( 4 ); 
+			elseif response_manager.total_response_count( 2 ) > right then 
+				movement = 1;
+				right = response_manager.total_response_count( 2 );
+			elseif response_manager.total_response_count( 5 ) > right_up then 
+				movement = 0;
+				right_up = response_manager.total_response_count( 5 );		
+			end; 
+			x = x + (movement * x_inc); 
+			if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+				
+			scale.set_part_x( 2, x ); 
+			scale.present(); 
+		
+			if response_manager.total_response_count( 3 ) > confirm then
+				#resfile.print (x); 
+				#resfile.print ("\t");
+			end;
+		end;
+	end;
+
+	loop 
+		int confirm = response_manager.total_response_count( 3 ); 
+		int right = response_manager.total_response_count( 2 ); 
+		int right_up = response_manager.total_response_count( 5 );
+		int left = response_manager.total_response_count( 1 );
+		int left_up = response_manager.total_response_count( 4 ); 
+		int x = 0; 
+		int x_inc = 3; 
+		int movement = 0;
+		scale.set_part(3,number[1]); 
+		scale.set_part(4,number[2]); 
+		scale.set_part(5,questions[2]); 
+		scale.present(); 
+	until 
+		response_manager.total_response_count( 3 ) > confirm 
+	begin 
+		if response_manager.total_response_count( 1 ) > left then 
+			movement = -1;
+			left = response_manager.total_response_count( 1 );
+		elseif response_manager.total_response_count( 4 ) > left_up then 
+			movement = 0;
+			left_up = response_manager.total_response_count( 4 ); 
+		elseif response_manager.total_response_count( 2 ) > right then 
+			movement = 1;
+			right = response_manager.total_response_count( 2 );
+		elseif response_manager.total_response_count( 5 ) > right_up then 
+			movement = 0;
+			right_up = response_manager.total_response_count( 5 );		
+		end; 
+		x = x + (movement * x_inc); 
+		if x < -100 then x = -100 elseif x > 100 then x = 100 end;
+				
+		scale.set_part_x( 2, x ); 
+		scale.present(); 
+		if response_manager.total_response_count( 3 ) > confirm then
+			#resfile.print (x); 
+			#resfile.print ("\n");
+		end;
+	end;
+	
+	ev_fixation_cross.set_duration(s);
+	tr_fixation_cross.present();	
+	
+end;

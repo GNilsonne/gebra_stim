@@ -1,0 +1,13 @@
+array{
+	bitmap { filename = "self_high.jpg";} self_high;	
+	bitmap { filename = "self_low.jpg";} self_low;
+	bitmap { filename = "other_high.jpg";} other_high;
+	bitmap { filename = "other_low.jpg";} other_low;
+} all_condition;
+
+array{
+	bitmap { filename = "shockpic_self_high.jpg";} shockpic_self_high;	
+	bitmap { filename = "shockpic_self_low.jpg";} shockpic_self_low;	
+	bitmap { filename = "shockpic_other_high.jpg";} shockpic_other_high;		
+	bitmap { filename = "shockpic_other_low.jpg";} shockpic_other_low;	
+} all_shock;
